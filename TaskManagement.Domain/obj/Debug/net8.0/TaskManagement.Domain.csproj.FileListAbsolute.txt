@@ -10,3 +10,4 @@ C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement.Domain\obj\Debug\n
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement.Domain\obj\Debug\net8.0\refint\TaskManagement.Domain.dll
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement.Domain\obj\Debug\net8.0\TaskManagement.Domain.pdb
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement.Domain\obj\Debug\net8.0\ref\TaskManagement.Domain.dll
+C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement.Domain\obj\Debug\net8.0\TaskManagement.Domain.sourcelink.json
