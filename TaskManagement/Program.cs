@@ -3,7 +3,7 @@ using TaskManagement.Infrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container
 
 builder.Services.AddDbContext<TaskManagementContext> (options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TaskManagementDb")));

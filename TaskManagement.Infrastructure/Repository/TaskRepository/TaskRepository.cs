@@ -15,8 +15,10 @@ namespace TaskManagement.Infrastructure.Repository.TaskRepository
         }
         public async Task<IEnumerable<Tareas>> GetAllAsync()
          => await _context.Tarea.ToListAsync();
+
         public async Task<Tareas> GetIdAsync(int id)
          => await _context.Tarea.FirstOrDefaultAsync(x => x.Id == id);
+
         public Task<(bool IsSuccess, string Message)> AddAsync(Tareas entry)
         {
             throw new NotImplementedException();
