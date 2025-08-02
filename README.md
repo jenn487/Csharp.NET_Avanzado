@@ -1,6 +1,6 @@
-# Minimal API de Gestión de Tareas
+# API de Gestión de Tareas
 
-Esta API permite gestionar tareas con operaciones CRUD usando una arquitectura Onion y Entity Framework Core. Soporta programación asíncrona y manejo centralizado de errores.
+Esta Minimal API en .NET sin necesidad de controladores ni clases adicionales permite gestionar tareas con operaciones CRUD usando una arquitectura Onion y Entity Framework Core. Soporta programación asíncrona y manejo centralizado de errores. 
 
 ## Tecnologías
 - .NET 8
