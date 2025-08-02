@@ -34,6 +34,9 @@
             "projectReferences": {
               "C:\\Users\\user\\Documents\\GitHub\\Csharp_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj": {
                 "projectPath": "C:\\Users\\user\\Documents\\GitHub\\Csharp_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj"
+              },
+              "C:\\Users\\user\\Documents\\GitHub\\Csharp_Avanzado\\TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\user\\Documents\\GitHub\\Csharp_Avanzado\\TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj"
               }
             }
           }
