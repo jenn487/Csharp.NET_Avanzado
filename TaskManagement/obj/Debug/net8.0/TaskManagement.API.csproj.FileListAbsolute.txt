@@ -142,3 +142,4 @@ C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\r
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\TaskManagement.API.pdb
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\TaskManagement.API.genruntimeconfig.cache
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\ref\TaskManagement.API.dll
+C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\TaskManagement.API.sourcelink.json

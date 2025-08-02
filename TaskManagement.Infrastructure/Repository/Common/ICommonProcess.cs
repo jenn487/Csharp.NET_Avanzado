@@ -8,7 +8,7 @@ namespace TaskManagement.Infrastructure.Repository.Common
 {
     public interface ICommonProcess<T> where T : class
     {
-        Task<IEnumerable<T>> GetAllTask();
+        Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetIdAsync(int id);
         Task<(bool IsSuccess, string Message)> AddAsync(T entry);
         Task<(bool IsSuccess, string Message)> UpdateTask(T entry);

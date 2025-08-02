@@ -5,12 +5,12 @@ namespace TaskManagement.Infrastructure.Context
 {
     public class TaskManagementContext : DbContext
     {
-        public TaskManagementContext(DbContextOptions<TaskManagementContext> options)
+        public TaskManagementContext(DbContextOptions options)
                 : base(options)
         {
         }
 
-        public DbSet<Tareas<string>> Tarea => Set<Tareas<string>>();
+        public DbSet<Tareas> Tarea { get; set; }
 
     }
 }
