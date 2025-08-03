@@ -10,14 +10,35 @@ namespace TaskManagement.API.Controllers
     public class TareasController : ControllerBase
     {
         private readonly TaskService _service;
+
         public TareasController(TaskService service)
         {
             _service = service;
         }
-    
+
         [HttpGet]
         public async Task<ActionResult<Response<Tareas>>> GetAllTasksAsync()
-            => await _service.GetAllTasksAsync();
+                => await _service.GetAllTasksAsync();
+
+        [HttpGet("pending")]
+        public async Task<ActionResult<Response<Tareas>>> GetPendingTasksAsync()
+            => await _service.GetPendingTasksAsync();
+
+        [HttpGet("overdue")]
+        public async Task<ActionResult<Response<Tareas>>> GetOverdueTasksAsync()
+            => await _service.GetOverdueTasksAsync();
+
+        [HttpGet("search/{searchTerm}")]
+        public async Task<ActionResult<Response<Tareas>>> SearchTasksAsync(string searchTerm)
+            => await _service.SearchTasksByDescriptionAsync(searchTerm);
+
+        [HttpGet("summary")]
+        public async Task<ActionResult<Response<string>>> GetTasksSummaryAsync()
+            => await _service.GetTasksSummaryAsync();
+
+        [HttpGet("filter-completed")]
+        public async Task<ActionResult<Response<Tareas>>> GetCompletedTasksAsync()
+            => await _service.GetAllTasksAsync(t => t.Status == Tareas.TaskStatus.Completado);
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Response<Tareas>>> GetTaskByIdAsync(int id)
@@ -34,7 +55,6 @@ namespace TaskManagement.API.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Response<string>>> DeleteTaskAsync(int id)
             => await _service.DeleteTaskAsync(id);
-
     }
-
 }
+
