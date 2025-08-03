@@ -14,3 +14,8 @@ C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement.Application\obj\De
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement.Application\obj\Debug\net8.0\TaskManagement.Application.pdb
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement.Application\obj\Debug\net8.0\ref\TaskManagement.Application.dll
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement.Application\obj\Debug\net8.0\TaskManagement.Application.sourcelink.json
+<<<<<<< HEAD
+=======
+C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement.Application\bin\Debug\net8.0\TaskManagement.Infrastructure.dll
+C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement.Application\bin\Debug\net8.0\TaskManagement.Infrastructure.pdb
+>>>>>>> feature/nueva-funcionalidad

@@ -1557,7 +1557,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "TaskManagement.Domain": "1.0.0"
+          "TaskManagement.Domain": "1.0.0",
+          "TaskManagement.Infrastructure": "1.0.0"
         },
         "compile": {
           "bin/placeholder/TaskManagement.Application.dll": {}
