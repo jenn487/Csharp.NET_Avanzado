@@ -505,12 +505,11 @@
       },
       "TaskStatus": {
         "enum": [
-          0,
-          1,
-          2
+          "Pendiente",
+          "Completado",
+          "Cancelado"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "WeatherForecast": {
         "type": "object",

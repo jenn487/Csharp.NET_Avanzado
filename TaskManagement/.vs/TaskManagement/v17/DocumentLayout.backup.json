@@ -45,8 +45,7 @@
               "RelativeToolTip": "..\\TaskManagement.Application\\Services\\TaskServices\\TaskValidationServices.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAkwCAAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-03T02:58:25.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-03T02:58:25.934Z"
             },
             {
               "$type": "Document",
@@ -58,8 +57,7 @@
               "RelativeToolTip": "..\\TaskManagement.Application\\Services\\TaskServices\\TaskService.cs",
               "ViewState": "AgIAAFYAAAAAAAAAAAAAAHMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-03T03:11:59.905Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-03T03:11:59.905Z"
             },
             {
               "$type": "Document",
@@ -71,8 +69,7 @@
               "RelativeToolTip": "Controllers\\TareasController.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAowC4AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-03T03:24:33.825Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-03T03:24:33.825Z"
             },
             {
               "$type": "Document",
@@ -82,7 +79,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\Csharp_Avanzado\\TaskManagement\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-03T03:25:40.078Z",
               "EditorCaption": ""
@@ -97,8 +94,7 @@
               "RelativeToolTip": "..\\TaskManagement.Domain\\Delegates\\TaskDelegates.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-03T02:54:49.023Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-03T02:54:49.023Z"
             },
             {
               "$type": "Document",
@@ -110,8 +106,7 @@
               "RelativeToolTip": "..\\TaskManagement.Application\\Services\\TaskServices\\TaskTransformService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-03T03:10:25.421Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-03T03:10:25.421Z"
             },
             {
               "$type": "Document",
@@ -123,8 +118,7 @@
               "RelativeToolTip": "..\\TaskManagement.Application\\Services\\TaskServices\\TaskFilterServices.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-03T03:01:58.221Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-03T03:01:58.221Z"
             }
           ]
         }
