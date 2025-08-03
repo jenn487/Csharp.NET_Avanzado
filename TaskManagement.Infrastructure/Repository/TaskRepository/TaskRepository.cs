@@ -4,7 +4,7 @@ using TaskManagement.Infrastructure.Repository.Common;
 
 namespace TaskManagement.Infrastructure.Repository.TaskRepository
 {
-    public class TaskRepository<T> : ICommonProcess<Tareas> 
+    public class TaskRepository<T> : ICommonProcess<Tareas>
     {
         private readonly TaskManagementContext _context;
 
@@ -16,15 +16,9 @@ namespace TaskManagement.Infrastructure.Repository.TaskRepository
          => await _context.Tarea.ToListAsync();
 
         public async Task<Tareas> GetIdAsync(int id)
-<<<<<<< HEAD
          => await _context.Tarea.FirstOrDefaultAsync(x => x.Id == id);
 
-        public Task<(bool IsSuccess, string Message)> AddAsync(Tareas entry)
-=======
-         => await _context.Tarea.FirstOrDefaultAsync(x=>x.Id == id);
-
         public async Task<(bool IsSuccess, string Message)> AddAsync(Tareas entry)
->>>>>>> feature/nueva-funcionalidad
         {
             try
             {
@@ -82,5 +76,4 @@ namespace TaskManagement.Infrastructure.Repository.TaskRepository
 
     }
 }
-
 

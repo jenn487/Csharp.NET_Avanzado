@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TaskManagement.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7954c199d58e8387692918094ed198e45150c8a")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+399682439f56508a362af50a07826bf40f27b3d8")]
->>>>>>> feature/nueva-funcionalidad
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+691bbff14b9d6620d38256f7e15fcb1772b83b36")]
 [assembly: System.Reflection.AssemblyProductAttribute("TaskManagement.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TaskManagement.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
