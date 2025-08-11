@@ -12,5 +12,15 @@ namespace TaskManagement.Infrastructure
 
         public DbSet<Tareas> Tarea { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // e enum a string para la base de datos
+            modelBuilder.Entity<Tareas>()
+                .Property(t => t.Status)
+                .HasConversion<string>();
+
+            base.OnModelCreating(modelBuilder);
+        }
+
     }
 }

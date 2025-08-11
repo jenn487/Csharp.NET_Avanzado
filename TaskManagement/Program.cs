@@ -11,7 +11,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<TaskManagementContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("TaskManagementDB"));
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("TaskManagementDB"),
+        b => b.MigrationsAssembly("TaskManagement.Infrastructure")
+    );
 });
 
 builder.Services.AddScoped<ICommonProcess<Tareas>, TaskRepository<Tareas>>();
