@@ -125,15 +125,15 @@
   },
   {
     "ContainingType": "TaskManagement.API.Controllers.TareasController",
-    "Method": "CreateFromTemplate",
-    "RelativePath": "api/Tareas/create/from-template",
+    "Method": "CreateHighPriority",
+    "RelativePath": "api/Tareas/create-high-priority",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "TaskManagement.Domain.DTO.CreateTaskFromTemplateDto",
+        "Name": "description",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

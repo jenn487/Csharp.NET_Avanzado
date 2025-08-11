@@ -2,54 +2,43 @@
 
 namespace TaskManagement.Application.Factories
 {
-    public class TaskFactory : ITaskFactory
+    public class TaskFactory 
     {
-        public Tareas CreateHighPriority(string description, string extraData = null, DateTime? dueDate = null)
-            => new Tareas
+        public static Tareas CreateHighPriorityTask(string description)
+        {
+            return new Tareas
             {
-                Description = description ?? "Tarea Alta Prioridad",
-                DueDate = dueDate ?? DateTime.UtcNow.AddDays(2),
+                Description = description,
+                DueDate = DateTime.Now.AddDays(1),
                 Status = Tareas.TaskStatus.Pendiente,
                 Priority = Tareas.PriorityLevel.High,
-                ExtraData = extraData ?? "Plantilla: Alta prioridad"
+                ExtraData = "High Priority"
             };
+        }
 
-        public Tareas CreateNormalPriority(string description, string extraData = null, DateTime? dueDate = null)
-            => new Tareas
+        public static Tareas CreateNormalPriorityTask(string description)
+        {
+            return new Tareas
             {
-                Description = description ?? "Tarea Normal",
-                DueDate = dueDate ?? DateTime.UtcNow.AddDays(7),
+                Description = description,
+                DueDate = DateTime.Now.AddDays(7),
                 Status = Tareas.TaskStatus.Pendiente,
                 Priority = Tareas.PriorityLevel.Normal,
-                ExtraData = extraData ?? "Plantilla: Normal"
+                ExtraData = "Normal Priority"
             };
+        }
 
-        public Tareas CreateLowPriority(string description, string extraData = null, DateTime? dueDate = null)
-            => new Tareas
+        public static Tareas CreateLowPriorityTask(string description)
+        {
+            return new Tareas
             {
-                Description = description ?? "Tarea Baja Prioridad",
-                DueDate = dueDate ?? DateTime.UtcNow.AddDays(30),
+                Description = description,
+                DueDate = DateTime.Now.AddDays(30),
                 Status = Tareas.TaskStatus.Pendiente,
                 Priority = Tareas.PriorityLevel.Low,
-                ExtraData = extraData ?? "Plantilla: Baja prioridad"
+                ExtraData = "Low Priority"
             };
-
-        public Tareas CreateFromTemplate(string templateName, string description = null, string extraData = null, DateTime? dueDate = null)
-        {
-            if (string.IsNullOrWhiteSpace(templateName))
-                return CreateNormalPriority(description, extraData, dueDate);
-
-            switch (templateName.Trim().ToLowerInvariant())
-            {
-                case "high":
-                case "alta":
-                    return CreateHighPriority(description, extraData, dueDate);
-                case "low":
-                case "baja":
-                    return CreateLowPriority(description, extraData, dueDate);
-                default:
-                    return CreateNormalPriority(description, extraData, dueDate);
-            }
         }
+
     }
 }

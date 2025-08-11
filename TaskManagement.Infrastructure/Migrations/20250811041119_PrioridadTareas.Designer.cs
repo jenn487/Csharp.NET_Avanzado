@@ -12,8 +12,8 @@ using TaskManagement.Infrastructure;
 namespace TaskManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(TaskManagementContext))]
-    [Migration("20250811034344_PriorityTareas")]
-    partial class PriorityTareas
+    [Migration("20250811041119_PrioridadTareas")]
+    partial class PrioridadTareas
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

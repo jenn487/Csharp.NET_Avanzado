@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 using TaskManagement.Application.Factories;
 using TaskManagement.Application.Services.TaskServices;
 using TaskManagement.Domain.DTO;
@@ -12,12 +11,10 @@ namespace TaskManagement.API.Controllers
     public class TareasController : ControllerBase
     {
         private readonly TaskService _service;
-        private readonly ITaskFactory _taskFactory;
 
-        public TareasController(TaskService service, ITaskFactory taskFactory)
+        public TareasController(TaskService service)
         {
             _service = service;
-            _taskFactory = taskFactory;
         }
 
         [HttpGet]
@@ -52,11 +49,10 @@ namespace TaskManagement.API.Controllers
         public async Task<ActionResult<Response<string>>> AddTaskAsync(Tareas tarea)
             => await _service.AddTaskAsync(tarea);
 
-        [HttpPost("create/from-template")]
-        public async Task<ActionResult<Response<string>>> CreateFromTemplate([FromBody] CreateTaskFromTemplateDto dto)
+        [HttpPost("create-high-priority")]
+        public async Task<ActionResult<Response<string>>> CreateHighPriority([FromBody] string description)
         {
-            var tarea = _taskFactory.CreateFromTemplate(dto.TemplateName, dto.Description, dto.ExtraData, dto.DueDate);
-            return await _service.AddTaskAsync(tarea);
+            return await _service.AddHighPriorityTaskAsync(description);
         }
 
         [HttpPut]

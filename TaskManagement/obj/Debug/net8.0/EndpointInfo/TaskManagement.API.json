@@ -359,7 +359,7 @@
         }
       }
     },
-    "/api/Tareas/create/from-template": {
+    "/api/Tareas/create-high-priority": {
       "post": {
         "tags": [
           "Tareas"
@@ -368,17 +368,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateTaskFromTemplateDto"
+                "type": "string"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateTaskFromTemplateDto"
+                "type": "string"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateTaskFromTemplateDto"
+                "type": "string"
               }
             }
           }
@@ -449,29 +449,6 @@
   },
   "components": {
     "schemas": {
-      "CreateTaskFromTemplateDto": {
-        "type": "object",
-        "properties": {
-          "templateName": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "dueDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "extraData": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "PriorityLevel": {
         "enum": [
           "Low",

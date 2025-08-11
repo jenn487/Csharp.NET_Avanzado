@@ -20,7 +20,7 @@ builder.Services.AddDbContext<TaskManagementContext>(options =>
 });
 
 builder.Services.AddScoped<ICommonProcess<Tareas>, TaskRepository<Tareas>>();
-builder.Services.AddSingleton<ITaskFactory, TaskFactory>();
+builder.Services.AddSingleton<TaskFactory,TaskFactory>();
 builder.Services.AddScoped<TaskService>();
 
 builder.Services.AddScoped<TaskValidationService>();

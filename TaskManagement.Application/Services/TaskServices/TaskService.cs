@@ -1,6 +1,7 @@
 ﻿using TaskManagement.Domain.DTO;
 using TaskManagement.Domain.Models;
 using TaskManagement.Infrastructure.Repository.Common;
+using TaskManagement.Application.Factories;
 
 namespace TaskManagement.Application.Services.TaskServices
 {
@@ -143,7 +144,7 @@ namespace TaskManagement.Application.Services.TaskServices
                     _onTaskCreated(tarea);
 
                     var daysRemaining = _transformService.CalculateDaysRemaining(tarea);
-                    response.Message += $" Días restantes: {daysRemaining}";
+                    response.Message += $" Dias restantes: {daysRemaining}";
                 }
             }
             catch (Exception ex)
@@ -163,7 +164,7 @@ namespace TaskManagement.Application.Services.TaskServices
                 var filteredTasks = allTasks.Where(t =>
                     t.Description.Contains(searchTerm, StringComparison.OrdinalIgnoreCase));
 
-                _filterService.LogFilterResults($"Búsqueda por '{searchTerm}'", filteredTasks.Count());
+                _filterService.LogFilterResults($"Busqueda por '{searchTerm}'", filteredTasks.Count());
 
                 response.DataList = filteredTasks;
                 response.Successful = true;
@@ -246,5 +247,12 @@ namespace TaskManagement.Application.Services.TaskServices
             }
             return response;
         }
+
+        public async Task<Response<string>> AddHighPriorityTaskAsync(string description)
+        {
+            var task = Factories.TaskFactory.CreateHighPriorityTask(description);
+            return await AddTaskAsync(task);
+        }
+
     }
 }
