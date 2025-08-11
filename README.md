@@ -1,5 +1,4 @@
 # API de Gestión de Tareas
-
 Esta es una Minimal API que utiliza la arquitectura Onion con Code First en Entity Framework Core. Libre de controladores ni clases adicionales, permite gestionar tareas con operaciones CRUD. Soporta programación asíncrona y manejo centralizado de errores. 
 
 
@@ -13,6 +12,7 @@ El proyecto se divide en 4 capas siguiendo la arquitectura Onion:
 3. Infrastructure (TaskManagement.Infrastructure) Implementa el acceso a datos con EF Core. Aquí viven los repositorios y filtros con funciones anónimas.
 
 4. API "Presentation" (TaskManagement.API) Expone los endpoints HTTP. Usa delegados, Action y Func para procesar cada solicitud de forma flexible.
+
 
 ## Tecnologías
 - .NET 8

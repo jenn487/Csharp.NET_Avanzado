@@ -7,11 +7,14 @@ using TaskManagement.Infrastructure.Repository.TaskRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container
 
 builder.Services.AddDbContext<TaskManagementContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("TaskManagementDB"));
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("TaskManagementDB"),
+        b => b.MigrationsAssembly("TaskManagement.Infrastructure")
+    );
 });
 
 builder.Services.AddScoped<ICommonProcess<Tareas>, TaskRepository<Tareas>>();
