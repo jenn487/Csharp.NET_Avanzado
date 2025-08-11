@@ -27,7 +27,7 @@ namespace TaskManagement.Application.Services.TaskServices
             _onTaskDeleted = id => _validationService.NotificationAction($"Tarea eliminada con ID: {id}");
         }
 
-        public async Task<Response<Tareas>> GetAllTasksAsync(Func<Tareas, bool> customFilter = null)
+        public async Task<Response<Tareas>> GetAllTasksAsync(Func<Tareas, bool>? customFilter = null)
         {
             var response = new Response<Tareas>();
             try
