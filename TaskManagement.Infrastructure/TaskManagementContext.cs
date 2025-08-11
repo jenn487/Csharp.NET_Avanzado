@@ -19,6 +19,11 @@ namespace TaskManagement.Infrastructure
                 .Property(t => t.Status)
                 .HasConversion<string>();
 
+            modelBuilder.Entity<Tareas>()
+                .Property(t => t.Priority)
+                .HasConversion<string>()
+                .HasDefaultValue(Tareas.PriorityLevel.Normal);
+
             base.OnModelCreating(modelBuilder);
         }
 

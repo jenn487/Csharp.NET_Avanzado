@@ -125,6 +125,32 @@
   },
   {
     "ContainingType": "TaskManagement.API.Controllers.TareasController",
+    "Method": "CreateFromTemplate",
+    "RelativePath": "api/Tareas/create/from-template",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "TaskManagement.Domain.DTO.CreateTaskFromTemplateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TaskManagement.Domain.DTO.Response\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TaskManagement.API.Controllers.TareasController",
     "Method": "GetCompletedTasksAsync",
     "RelativePath": "api/Tareas/filter-completed",
     "HttpMethod": "GET",

@@ -3,5 +3,4 @@ obj/
 *.dll
 *.pdb
 *.cache
-*.sourcelink.jsonTaskManagement.Application/bin/
-TaskManagement.Application/obj/
+

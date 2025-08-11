@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using TaskManagement.Application.Factories;
 using TaskManagement.Application.Services.TaskServices;
 using TaskManagement.Domain.DTO;
 using TaskManagement.Domain.Models;
@@ -10,10 +12,12 @@ namespace TaskManagement.API.Controllers
     public class TareasController : ControllerBase
     {
         private readonly TaskService _service;
+        private readonly ITaskFactory _taskFactory;
 
-        public TareasController(TaskService service)
+        public TareasController(TaskService service, ITaskFactory taskFactory)
         {
             _service = service;
+            _taskFactory = taskFactory;
         }
 
         [HttpGet]
@@ -47,6 +51,13 @@ namespace TaskManagement.API.Controllers
         [HttpPost]
         public async Task<ActionResult<Response<string>>> AddTaskAsync(Tareas tarea)
             => await _service.AddTaskAsync(tarea);
+
+        [HttpPost("create/from-template")]
+        public async Task<ActionResult<Response<string>>> CreateFromTemplate([FromBody] CreateTaskFromTemplateDto dto)
+        {
+            var tarea = _taskFactory.CreateFromTemplate(dto.TemplateName, dto.Description, dto.ExtraData, dto.DueDate);
+            return await _service.AddTaskAsync(tarea);
+        }
 
         [HttpPut]
         public async Task<ActionResult<Response<string>>> UpdateTaskAsync(Tareas tarea)

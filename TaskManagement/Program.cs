@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore;
+using TaskManagement.Application.Factories;
 using TaskManagement.Application.Services.TaskServices;
 using TaskManagement.Domain.Models;
 using TaskManagement.Infrastructure;
 using TaskManagement.Infrastructure.Repository.Common;
 using TaskManagement.Infrastructure.Repository.TaskRepository;
+using TaskFactory = TaskManagement.Application.Factories.TaskFactory;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,7 @@ builder.Services.AddDbContext<TaskManagementContext>(options =>
 });
 
 builder.Services.AddScoped<ICommonProcess<Tareas>, TaskRepository<Tareas>>();
+builder.Services.AddSingleton<ITaskFactory, TaskFactory>();
 builder.Services.AddScoped<TaskService>();
 
 builder.Services.AddScoped<TaskValidationService>();
