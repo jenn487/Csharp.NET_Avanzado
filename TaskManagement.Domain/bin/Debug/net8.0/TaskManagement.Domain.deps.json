@@ -9,7 +9,8 @@
       "TaskManagement.Domain/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.0",
-          "Microsoft.EntityFrameworkCore.Relational": "8.0.0"
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.0",
+          "System.Reactive": "6.0.2"
         },
         "runtime": {
           "TaskManagement.Domain.dll": {}
@@ -149,6 +150,14 @@
             "fileVersion": "8.0.23.53103"
           }
         }
+      },
+      "System.Reactive/6.0.2": {
+        "runtime": {
+          "lib/net6.0/System.Reactive.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.2.37208"
+          }
+        }
       }
     }
   },
@@ -248,6 +257,13 @@
       "sha512": "sha512-bXJEZrW9ny8vjMF1JV253WeLhpEVzFo1lyaZu1vQ4ZxWUlVvknZ/+ftFgVheLubb4eZPSwwxBeqS1JkCOjxd8g==",
       "path": "microsoft.extensions.primitives/8.0.0",
       "hashPath": "microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+    },
+    "System.Reactive/6.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jEK6E66wojW/dPPnLyOHuAQwa7WKvXwPd5vXcMNNi1igvFyzHQVRNlpmnBb3I1URBsK5PGJcJYRykERZJr0l4g==",
+      "path": "system.reactive/6.0.2",
+      "hashPath": "system.reactive.6.0.2.nupkg.sha512"
     }
   }
 }

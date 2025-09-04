@@ -5,6 +5,7 @@ using TaskManagement.Infrastructure;
 using TaskManagement.Infrastructure.Repository.Common;
 using TaskManagement.Infrastructure.Repository.TaskRepository;
 using TaskManagement.API.Converters;
+using TaskManagement.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,9 @@ builder.Services.AddDbContext<TaskManagementContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("TaskManagementDB"));
 });
+
+builder.Services.AddSingleton<IReactiveTaskQueue, ReactiveTaskQueue>();
+builder.Services.AddHostedService<ReactiveTaskProcessorService>();
 
 builder.Services.AddScoped<ICommonProcess<Tareas>, TaskRepository>();
 builder.Services.AddScoped<TaskService>();
