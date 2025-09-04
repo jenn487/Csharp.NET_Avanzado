@@ -7,7 +7,6 @@ namespace TaskManagement.Application.Services.TaskServices
     public class TaskService
     {
         private readonly ICommonProcess<Tareas> _commonsProcess;
-
         public TaskService(ICommonProcess<Tareas> commonsProcess)
         {
             _commonsProcess = commonsProcess;

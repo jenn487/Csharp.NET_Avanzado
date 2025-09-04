@@ -13,7 +13,7 @@ namespace TaskManagement.Infrastructure.Context
         public TaskManagementContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<TaskManagementContext>();
-            optionsBuilder.UseSqlServer("Data Source=TaskManagement.db");
+            optionsBuilder.UseSqlServer("Server=.;Database=TaskManagementDB;Trusted_Connection=True;TrustServerCertificate=True;");
 
             return new TaskManagementContext(optionsBuilder.Options);
         }

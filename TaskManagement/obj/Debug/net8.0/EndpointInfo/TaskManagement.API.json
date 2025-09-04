@@ -286,6 +286,10 @@
         "additionalProperties": false
       },
       "Tareas": {
+        "required": [
+          "dueDate",
+          "status"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -301,7 +305,8 @@
             "format": "date-time"
           },
           "status": {
-            "$ref": "#/components/schemas/TaskStatus"
+            "minLength": 1,
+            "type": "string"
           },
           "extraData": {
             "type": "string",
@@ -347,15 +352,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "TaskStatus": {
-        "enum": [
-          0,
-          1,
-          2
-        ],
-        "type": "integer",
-        "format": "int32"
       },
       "WeatherForecast": {
         "type": "object",
