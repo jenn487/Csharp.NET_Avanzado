@@ -4,7 +4,7 @@ using TaskManagement.Infrastructure.Repository.Common;
 
 namespace TaskManagement.Infrastructure.Repository.TaskRepository
 {
-    public class TaskRepository<T> : ICommonProcess<Tareas> 
+    public class TaskRepository : ICommonProcess<Tareas>
     {
         private readonly TaskManagementContext _context;
 
@@ -16,7 +16,7 @@ namespace TaskManagement.Infrastructure.Repository.TaskRepository
          => await _context.Tarea.ToListAsync();
 
         public async Task<Tareas> GetIdAsync(int id)
-         => await _context.Tarea.FirstOrDefaultAsync(x=>x.Id == id);
+         => await _context.Tarea.FirstOrDefaultAsync(x => x.Id == id);
 
         public async Task<(bool IsSuccess, string Message)> AddAsync(Tareas entry)
         {
@@ -40,6 +40,12 @@ namespace TaskManagement.Infrastructure.Repository.TaskRepository
         {
             try
             {
+                var exists = await _context.Tarea.AnyAsync(x => x.Id == entry.Id);
+                if (!exists)
+                {
+                    return (false, "La tarea no existe.");
+                }
+
                 _context.Tarea.Update(entry);
                 await _context.SaveChangesAsync();
                 return (true, "¡Actualizada Correctamente!");

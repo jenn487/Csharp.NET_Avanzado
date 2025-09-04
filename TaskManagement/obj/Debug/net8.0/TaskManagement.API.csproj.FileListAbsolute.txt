@@ -144,3 +144,13 @@ C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\T
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\ref\TaskManagement.API.dll
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\TaskManagement.API.sourcelink.json
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\TaskManagement.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\bin\Debug\net8.0\System.Reactive.dll

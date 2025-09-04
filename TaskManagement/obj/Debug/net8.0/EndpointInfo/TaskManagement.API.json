@@ -5,6 +5,86 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Tareas/completion-rate": {
+      "get": {
+        "tags": [
+          "Tareas"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tareas/by-status/{status}": {
+      "get": {
+        "tags": [
+          "Tareas"
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tareas"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tareas"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tareas"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Tareas": {
       "get": {
         "tags": [
@@ -58,24 +138,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/StringResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StringResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StringResponse"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -204,6 +267,68 @@
         }
       }
     },
+    "/api/Tareas/high-priority": {
+      "post": {
+        "tags": [
+          "Tareas"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tareas/low-priority": {
+      "post": {
+        "tags": [
+          "Tareas"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
@@ -286,6 +411,11 @@
         "additionalProperties": false
       },
       "Tareas": {
+        "required": [
+          "description",
+          "dueDate",
+          "status"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -293,15 +423,20 @@
             "format": "int32"
           },
           "description": {
-            "type": "string",
-            "nullable": true
+            "minLength": 5,
+            "type": "string"
           },
           "dueDate": {
             "type": "string",
             "format": "date-time"
           },
           "status": {
-            "$ref": "#/components/schemas/TaskStatus"
+            "minLength": 1,
+            "type": "string"
+          },
+          "priority": {
+            "type": "string",
+            "nullable": true
           },
           "extraData": {
             "type": "string",
@@ -347,15 +482,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "TaskStatus": {
-        "enum": [
-          0,
-          1,
-          2
-        ],
-        "type": "integer",
-        "format": "int32"
       },
       "WeatherForecast": {
         "type": "object",
