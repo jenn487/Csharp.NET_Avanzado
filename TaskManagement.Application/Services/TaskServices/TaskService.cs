@@ -100,10 +100,11 @@ namespace TaskManagement.Application.Services.TaskServices
                     response.Errors.Add(validateResult.ErrorMessage);
                     return response;
                 }
-                //action para registrar la creacion dela tarea
-                _notifyCreation(tarea);
 
                 tarea.ExtraData = $"{_calculateDaysRemaining(tarea)} dias restantes.";
+
+                //action para registrar la creacion dela tarea
+                _notifyCreation(tarea);
 
                 var result = await _commonsProcess.AddAsync(tarea);
                 response.Message = result.Message;

@@ -16,8 +16,9 @@ public class Tareas
     [Required(ErrorMessage = "La fecha de vencimiento es obligatoria.")]
     public DateTime DueDate { get; set; }
 
-    [Required(ErrorMessage = "El estado es obligatorio (ej: 'Pendiente' o 'Completada').")]
+    [Required(ErrorMessage = "El estado es obligatorio (ej: 'Pendiente' 'En proceso' o 'Completada').")]
     public string Status { get; set; }
+    public string? Priority { get; set; }
 
     public string? ExtraData { get; set; }
 
