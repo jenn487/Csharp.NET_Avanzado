@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TaskManagement.Application.Services;
 using TaskManagement.Application.Services.TaskServices;
 using TaskManagement.Domain.DTO;
 using TaskManagement.Domain.Models;
@@ -10,9 +11,11 @@ namespace TaskManagement.API.Controllers
     public class TareasController : ControllerBase
     {
         private readonly TaskService _service;
-        public TareasController(TaskService service)
+        private readonly IReactiveTaskQueue _taskQueue;
+        public TareasController(TaskService service, IReactiveTaskQueue taskQueue)
         {
             _service = service;
+            _taskQueue = taskQueue;
         }
         //LOS GETS
         [HttpGet]
@@ -25,23 +28,41 @@ namespace TaskManagement.API.Controllers
 
         //LOS POSTS
         [HttpPost]
-        public async Task<ActionResult<Response<string>>> AddTaskAsync(Tareas tarea)
-            => await _service.AddTaskAsync(tarea);
+        public ActionResult AddTaskAsync(Tareas tarea)
+        {
+            var response = new Response<string>
+            {
+                Successful = true,
+                Message = "Tarea agregada a la cola."
+            };
+            _taskQueue.EnqueueTask(tarea);
+            return Ok(response);
+        }
 
         [HttpPost("high-priority")]
-        public async Task<ActionResult<Response<string>>> AddHighPriorityTaskAsync([FromBody] string description)
+        public ActionResult AddHighPriorityTaskAsync([FromBody] string description)
         {
-            var tarea = TaskManagement.Application.Services.TaskServices.TaskFactory.CreateHighPriorityTask(description);
-            var result = await _service.AddTaskAsync(tarea);
-            return Ok (result);
+            var tarea = Application.Services.TaskServices.TaskFactory.CreateHighPriorityTask(description);
+            var response = new Response<string>
+            {
+                Successful = true,
+                Message = "Tarea de alta prioridad agregada a la cola."
+            };
+            _taskQueue.EnqueueTask(tarea);
+            return Ok(response);
         }
 
         [HttpPost("low-priority")]
-        public async Task<ActionResult<Response<string>>> AddLowPriorityTaskAsync([FromBody] string description)
+        public ActionResult AddLowPriorityTaskAsync([FromBody] string description)
         {
-            var tarea = TaskManagement.Application.Services.TaskServices.TaskFactory.CreateLowPriorityTask(description);
-            var result = await _service.AddTaskAsync(tarea);
-            return Ok(result);
+            var tarea = Application.Services.TaskServices.TaskFactory.CreateLowPriorityTask(description);
+            var response = new Response<string>
+            {
+                Successful = true,
+                Message = "Tarea de baja prioridad agregada a la cola."
+            };
+            _taskQueue.EnqueueTask(tarea);
+            return Ok(response);
         }
 
         //LOS PUTS

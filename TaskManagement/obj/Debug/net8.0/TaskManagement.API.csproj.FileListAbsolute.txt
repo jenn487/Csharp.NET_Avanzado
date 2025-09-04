@@ -290,3 +290,13 @@ C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\obj\Debug\net8
 C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\obj\Debug\net8.0\TaskManagement.API.pdb
 C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\obj\Debug\net8.0\TaskManagement.API.genruntimeconfig.cache
 C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\obj\Debug\net8.0\ref\TaskManagement.API.dll
+C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\bin\Debug\net8.0\System.Reactive.dll
