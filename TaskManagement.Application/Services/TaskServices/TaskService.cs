@@ -7,9 +7,46 @@ namespace TaskManagement.Application.Services.TaskServices
     public class TaskService
     {
         private readonly ICommonProcess<Tareas> _commonsProcess;
+
+        //delegado
+        private readonly Func<Tareas, (bool IsValid, string ErrorMessage)> _validateTask;
+
+        //action de notificacion
+        private readonly Action<Tareas> _notifyCreation;
+
+        //func para calcular dias restantes
+        private readonly Func<Tareas, int> _calculateDaysRemaining;
         public TaskService(ICommonProcess<Tareas> commonsProcess)
         {
             _commonsProcess = commonsProcess;
+
+            _validateTask = (tarea) =>
+            {
+                if (string.IsNullOrWhiteSpace(tarea.Description) || tarea.Description.Length < 5)
+                {
+                    return (false, "La descripción debe tener al menos 5 caracteres.");
+                }
+                if (tarea.DueDate < DateTime.Now)
+                {
+                    return (false, "La fecha de vencimiento debe ser en el futuro.");
+                }
+                var validStatuses = new List<string> { "Pendiente","En proceso", "Completada" };
+                if (!validStatuses.Contains(tarea.Status))
+                {
+                    return (false, "El estado debe ser 'Pendiente', 'En proceso' o 'Completada'.");
+                }
+                return (true, string.Empty);
+            };
+
+            _notifyCreation = tarea =>
+                Console.WriteLine($"Se ha creado una nueva tarea '{tarea.Description}'. Vence en {_calculateDaysRemaining(tarea)} dia(s).");
+
+            //func para calcular dias restantes
+            _calculateDaysRemaining = tarea =>
+            {
+                var diferencia = tarea.DueDate.Date - DateTime.Now.Date;
+                return diferencia.Days > 0 ? diferencia.Days : 0;
+            };
         }
         //Gets
         public async Task<Response<Tareas>> GetAllTasksAsync()
@@ -56,6 +93,18 @@ namespace TaskManagement.Application.Services.TaskServices
             var response = new Response<string>();
             try
             {
+                var validateResult = _validateTask(tarea);
+                if (!validateResult.IsValid)
+                {
+                    response.Successful = false;
+                    response.Errors.Add(validateResult.ErrorMessage);
+                    return response;
+                }
+                //action para registrar la creacion dela tarea
+                _notifyCreation(tarea);
+
+                tarea.ExtraData = $"{_calculateDaysRemaining(tarea)} dias restantes.";
+
                 var result = await _commonsProcess.AddAsync(tarea);
                 response.Message = result.Message;
                 response.Successful = result.IsSuccess;
