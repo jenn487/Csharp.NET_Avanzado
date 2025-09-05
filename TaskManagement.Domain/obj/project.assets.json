@@ -689,11 +689,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj",
       "projectName": "TaskManagement.Domain",
-      "projectPath": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj",
+      "projectPath": "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Domain\\obj\\",
+      "outputPath": "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

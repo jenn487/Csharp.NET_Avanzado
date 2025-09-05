@@ -6,7 +6,7 @@ namespace TaskManagement.API.Converters
 {
     public class DateTimeConverter : JsonConverter<DateTime>
     {
-        private const string Format = "dd-MM-yyyy hh:mm tt"; 
+        private const string Format = "dd-MM-yyyy hh:mm tt";
 
         public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {

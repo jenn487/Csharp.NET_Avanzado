@@ -1,4 +1,6 @@
-﻿using TaskManagement.Domain.DTO;
+﻿using System.Linq;
+using TaskManagement.Application.Services.Memoization;
+using TaskManagement.Domain.DTO;
 using TaskManagement.Domain.Models;
 using TaskManagement.Infrastructure.Repository.Common;
 
@@ -30,7 +32,7 @@ namespace TaskManagement.Application.Services.TaskServices
                 {
                     return (false, "La fecha de vencimiento debe ser en el futuro.");
                 }
-                var validStatuses = new List<string> { "Pendiente","En proceso", "Completada" };
+                var validStatuses = new List<string> { "Pendiente", "En proceso", "Completada" };
                 if (!validStatuses.Contains(tarea.Status))
                 {
                     return (false, "El estado debe ser 'Pendiente', 'En proceso' o 'Completada'.");
@@ -107,6 +109,9 @@ namespace TaskManagement.Application.Services.TaskServices
                 _notifyCreation(tarea);
 
                 var result = await _commonsProcess.AddAsync(tarea);
+
+                MemoizationCache.Clear(); // limpiar cache para recalcular
+
                 response.Message = result.Message;
                 response.Successful = result.IsSuccess;
             }
@@ -124,6 +129,9 @@ namespace TaskManagement.Application.Services.TaskServices
             try
             {
                 var result = await _commonsProcess.UpdateAsync(tarea);
+
+                MemoizationCache.Clear(); // limpiar cache para recalcular
+
                 response.Message = result.Message;
                 response.Successful = result.IsSuccess;
             }
@@ -140,6 +148,9 @@ namespace TaskManagement.Application.Services.TaskServices
             try
             {
                 var result = await _commonsProcess.DeleteAsync(id);
+
+                MemoizationCache.Clear(); // limpiar cache para recalcular
+
                 response.Message = result.Message;
                 response.Successful = result.IsSuccess;
             }
@@ -149,6 +160,38 @@ namespace TaskManagement.Application.Services.TaskServices
             }
             return response;
         }
+
+        //memorizacion para tareas completadas
+        public async Task<double> CalculateTaskCompletionRateAsync()
+        {
+            return await Task.Run(() =>
+            {
+                return MemoizationCache.GetOrAdd("CompletionRate", () =>
+                {
+                    var allTasks = _commonsProcess.GetAllAsync().Result;
+                    var total = allTasks.Count();
+                    if (total == 0) return 0.0;
+                    var completed = allTasks.Count(t => t.Status == "Completada");
+                    return (double)completed / total * 100;
+                });
+            });
+        }
+
+        // filtro por estado con memorizacion
+        public async Task<IEnumerable<Tareas>> GetTasksByStatusAsync(string status)
+        {
+            return await Task.Run(() =>
+            {
+                return MemoizationCache.GetOrAdd($"Filter:{status}", () =>
+                {
+                    var allTasks = _commonsProcess.GetAllAsync().Result;
+                    return allTasks.Where(t => t.Status == status).ToList();
+                });
+            });
+        }
+
+
+
 
     }
 }

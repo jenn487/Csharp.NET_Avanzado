@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TaskManagement.Application.Services;
+using TaskManagement.Application.Services.Reactive;
 using TaskManagement.Application.Services.TaskServices;
 using TaskManagement.Domain.DTO;
 using TaskManagement.Domain.Models;
@@ -17,6 +17,25 @@ namespace TaskManagement.API.Controllers
             _service = service;
             _taskQueue = taskQueue;
         }
+
+        //MEMORIZACION 
+
+        // porciento tareas completadas
+        [HttpGet("completion-rate")]
+        public async Task<ActionResult<double>> GetCompletionRateAsync()
+        {
+            var rate = await _service.CalculateTaskCompletionRateAsync();
+            return Ok($"{Math.Round(rate, 2)}% completadas"); 
+        }
+
+        //filtro tareas por estado
+        [HttpGet("by-status/{status}")]
+        public async Task<ActionResult<IEnumerable<Tareas>>> GetTasksByStatusAsync(string status)
+        {
+            var tasks = await _service.GetTasksByStatusAsync(status);
+            return Ok(tasks);
+        }
+
         //LOS GETS
         [HttpGet]
         public async Task<ActionResult<Response<Tareas>>> GetAllTasksAsync()

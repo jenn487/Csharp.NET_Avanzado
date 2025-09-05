@@ -26,7 +26,7 @@ namespace TaskManagement.Application.Services.TaskServices
                 DueDate = DateTime.Now.AddDays(7),
                 Status = "Pendiente",
                 Priority = "Baja",
-            }; 
+            };
         }
     }
 }

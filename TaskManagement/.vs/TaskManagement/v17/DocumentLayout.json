@@ -1,20 +1,16 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement\\",
+  "WorkspaceRootPath": "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A89E5C59-FFA6-4CD3-A08F-027F66224AD8}|TaskManagement.API.csproj|c:\\users\\user\\documents\\github\\csharp.net_avanzado\\taskmanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A89E5C59-FFA6-4CD3-A08F-027F66224AD8}|TaskManagement.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABAFEB5F-22D6-4985-ADB1-80BC7488B14A}|..\\TaskManagement.Application\\TaskManagement.Application.csproj|c:\\users\\user\\documents\\github\\csharp.net_avanzado\\taskmanagement.application\\services\\reactivetaskqueue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A89E5C59-FFA6-4CD3-A08F-027F66224AD8}|TaskManagement.API.csproj|c:\\users\\user\\documents\\github\\csharp.net_avanzado\\taskmanagement\\controllers\\tareascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A89E5C59-FFA6-4CD3-A08F-027F66224AD8}|TaskManagement.API.csproj|c:\\users\\user\\downloads\\csharp_avanzado\\taskmanagement\\controllers\\tareascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A89E5C59-FFA6-4CD3-A08F-027F66224AD8}|TaskManagement.API.csproj|solutionrelative:controllers\\tareascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABAFEB5F-22D6-4985-ADB1-80BC7488B14A}|..\\TaskManagement.Application\\TaskManagement.Application.csproj|c:\\users\\user\\documents\\github\\csharp.net_avanzado\\taskmanagement.application\\services\\reactivetaskprocessorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\GitHub\\Csharp_Avanzado\\TaskManagement.Application\\Services\\Memorization\\MemoizationCache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\GitHub\\Csharp_Avanzado\\TaskManagement.Application\\Services\\TaskServices\\TaskService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,59 +20,44 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "TareasController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement\\Controllers\\TareasController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement\\Controllers\\TareasController.cs",
               "RelativeDocumentMoniker": "Controllers\\TareasController.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement\\Controllers\\TareasController.cs",
+              "ToolTip": "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement\\Controllers\\TareasController.cs",
               "RelativeToolTip": "Controllers\\TareasController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB4AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T06:50:06.176Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ReactiveTaskProcessorService.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Application\\Services\\ReactiveTaskProcessorService.cs",
-              "RelativeDocumentMoniker": "..\\TaskManagement.Application\\Services\\ReactiveTaskProcessorService.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Application\\Services\\ReactiveTaskProcessorService.cs",
-              "RelativeToolTip": "..\\TaskManagement.Application\\Services\\ReactiveTaskProcessorService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T06:45:45.649Z",
+              "WhenOpened": "2025-09-04T20:16:41.459Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ReactiveTaskQueue.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Application\\Services\\ReactiveTaskQueue.cs",
-              "RelativeDocumentMoniker": "..\\TaskManagement.Application\\Services\\ReactiveTaskQueue.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Application\\Services\\ReactiveTaskQueue.cs",
-              "RelativeToolTip": "..\\TaskManagement.Application\\Services\\ReactiveTaskQueue.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Title": "MemoizationCache.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\Csharp_Avanzado\\TaskManagement.Application\\Services\\Memorization\\MemoizationCache.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Documents\\GitHub\\Csharp_Avanzado\\TaskManagement.Application\\Services\\Memorization\\MemoizationCache.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\Csharp_Avanzado\\TaskManagement.Application\\Services\\Memorization\\MemoizationCache.cs",
+              "RelativeToolTip": "..\\..\\..\\Documents\\GitHub\\Csharp_Avanzado\\TaskManagement.Application\\Services\\Memorization\\MemoizationCache.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T06:44:20.273Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T19:50:10.091Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABCAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "TaskService.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\Csharp_Avanzado\\TaskManagement.Application\\Services\\TaskServices\\TaskService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Documents\\GitHub\\Csharp_Avanzado\\TaskManagement.Application\\Services\\TaskServices\\TaskService.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\Csharp_Avanzado\\TaskManagement.Application\\Services\\TaskServices\\TaskService.cs",
+              "RelativeToolTip": "..\\..\\..\\Documents\\GitHub\\Csharp_Avanzado\\TaskManagement.Application\\Services\\TaskServices\\TaskService.cs",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAswJcAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-02T20:41:05.187Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T19:30:55.078Z"
             }
           ]
         }

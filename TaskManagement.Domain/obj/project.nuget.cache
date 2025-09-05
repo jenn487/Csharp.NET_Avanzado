@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EBlt5v/LqQE=",
+  "dgSpecHash": "2a40cLvhuFk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj",
+  "projectFilePath": "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.0\\microsoft.entityframeworkcore.8.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.0\\microsoft.entityframeworkcore.abstractions.8.0.0.nupkg.sha512",
