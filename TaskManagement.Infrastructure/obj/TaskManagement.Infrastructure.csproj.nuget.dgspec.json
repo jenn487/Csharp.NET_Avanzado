@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj": {}
+    "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj": {
+    "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj",
         "projectName": "TaskManagement.Domain",
-        "projectPath": "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj",
+        "projectPath": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement.Domain\\obj\\",
+        "outputPath": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -83,14 +83,14 @@
         }
       }
     },
-    "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj": {
+    "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj",
         "projectName": "TaskManagement.Infrastructure",
-        "projectPath": "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -111,8 +111,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj": {
-                "projectPath": "C:\\Users\\user\\Downloads\\Csharp_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj"
+              "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj": {
+                "projectPath": "C:\\Users\\user\\Documents\\GitHub\\Csharp.NET_Avanzado\\TaskManagement.Domain\\TaskManagement.Domain.csproj"
               }
             }
           }

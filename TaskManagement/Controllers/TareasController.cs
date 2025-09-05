@@ -3,9 +3,12 @@ using TaskManagement.Application.Services.Reactive;
 using TaskManagement.Application.Services.TaskServices;
 using TaskManagement.Domain.DTO;
 using TaskManagement.Domain.Models;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace TaskManagement.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TareasController : ControllerBase
@@ -41,6 +44,7 @@ namespace TaskManagement.API.Controllers
         public async Task<ActionResult<Response<Tareas>>> GetAllTasksAsync()
             => await _service.GetAllTasksAsync();
 
+        [Authorize(Roles = "Admin")]
         [HttpGet("{id}")]
         public async Task<ActionResult<Response<Tareas>>> GetTaskByIdAsync(int id)
             => await _service.GetTaskByIdAsync(id);
@@ -90,6 +94,7 @@ namespace TaskManagement.API.Controllers
             => await _service.UpdateTaskAsync(tarea);
 
         //LOS DELETES
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Response<string>>> DeleteTaskAsync(int id)
             => await _service.DeleteTaskAsync(id);

@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Reactive.Linq;
 using TaskManagement.Application.Services.TaskServices;
-using TaskManagement.Domain.DTO;
+using TaskManagement.Domain.DTO; 
 
 namespace TaskManagement.Application.Services.Reactive;
 
@@ -38,7 +38,7 @@ public class ReactiveTaskProcessorService : BackgroundService
                     var result = await taskService.AddTaskAsync(tarea);
 
                     _logger.LogInformation("Tarea procesada correctamente.");
-                    return result;
+                    return result; 
                 }
             })
             .Subscribe(

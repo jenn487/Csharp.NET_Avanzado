@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "TaskManagement.API.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TaskManagement.Domain.DTO.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TaskManagement.API.Controllers.TareasController",
     "Method": "GetAllTasksAsync",
     "RelativePath": "api/Tareas",
