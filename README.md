@@ -12,6 +12,14 @@ Etapa 4: Flujo de Datos en Tiempo Real Se introduce Rx.NET para manejar programa
 
 Etapa 5: Optimización de Funciones con Memorización Se mejora el rendimiento del sistema mediante técnicas de memorización, reduciendo el costo computacional de operaciones repetitivas.
 
+Etapa 6: Seguridad con Autenticación y Autorización Se refuerza la seguridad de la API utilizando JWT y OAuth, asegurando el acceso controlado y la protección de los datos del usuario.
+
+Etapa 7: Comunicación en Tiempo Real con SignalR Se habilita la interacción en vivo entre clientes y servidor, facilitando notificaciones instantáneas y colaboración en grupo mediante SignalR.
+
+Etapa 8: Validación con Pruebas Unitarias Se desarrollan pruebas unitarias para verificar el correcto funcionamiento de los componentes, garantizando calidad y confiabilidad en el código.
+
+Etapa 9: Despliegue en Azure Se publica la API en la nube utilizando Azure, completando el ciclo de desarrollo con una solución accesible, escalable y lista para producción.
+
 
 ## Opcion para abrir el editor de código en el navegador, sin clonar ni instalar nada localmente.
 1. En la barra de direcciones del navegador, reemplaza "github.com" por "github.dev"
