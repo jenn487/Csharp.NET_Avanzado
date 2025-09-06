@@ -11,6 +11,9 @@ using TaskManagement.Infrastructure;
 using TaskManagement.Infrastructure.Repository.Common;
 using TaskManagement.Infrastructure.Repository.TaskRepository;
 using Microsoft.OpenApi.Models;
+using TaskManagement.API.Hubs;
+using TaskManagement.Application.Services.Notifications;
+using TaskManagement.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,11 +32,28 @@ builder.Services.AddScoped<AuthService>();
 builder.Services.AddSingleton<IReactiveTaskQueue, ReactiveTaskQueue>();
 builder.Services.AddHostedService<ReactiveTaskProcessorService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyHeader()
+              .AllowAnyMethod()
+              .SetIsOriginAllowed(origin => true) // allow any origin
+              .AllowCredentials();
+    });
+
+});
+
+builder.Services.AddSignalR();
+
+builder.Services.AddScoped<INotificationService, SignalRNotificationService>();
 builder.Services.AddControllers();
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.Converters.Add(new DateTimeConverter());
 });
+
+// JWT Authentication
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -48,6 +68,23 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidAudience = builder.Configuration["Jwt:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+
+        options.Events = new JwtBearerEvents
+        {
+            OnMessageReceived = context =>
+            {
+                var accessToken = context.Request.Query["access_token"].FirstOrDefault();
+                // If the request is for our hub...
+                var path = context.HttpContext.Request.Path;
+                if (!string.IsNullOrEmpty(accessToken) &&
+                    (path.StartsWithSegments("/hubs/tasks")))
+                {
+                    // Read the token out of the query string
+                    context.Token = accessToken;
+                }
+                return Task.CompletedTask;
+            }
         };
     });
 
@@ -108,10 +145,16 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("AllowAll");
+
+app.UseRouting();
+
 app.UseAuthentication();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<TaskHub>("/hubs/tasks");
 
 app.Run();

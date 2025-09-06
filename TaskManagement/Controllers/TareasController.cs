@@ -4,6 +4,7 @@ using TaskManagement.Application.Services.TaskServices;
 using TaskManagement.Domain.DTO;
 using TaskManagement.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
+using TaskManagement.Application.Services.Notifications;
 
 
 namespace TaskManagement.API.Controllers
@@ -15,10 +16,12 @@ namespace TaskManagement.API.Controllers
     {
         private readonly TaskService _service;
         private readonly IReactiveTaskQueue _taskQueue;
-        public TareasController(TaskService service, IReactiveTaskQueue taskQueue)
+        private readonly INotificationService _notificationService;
+        public TareasController(TaskService service, IReactiveTaskQueue taskQueue, INotificationService notificationService)
         {
             _service = service;
             _taskQueue = taskQueue;
+            _notificationService = notificationService;
         }
 
         //MEMORIZACION 
@@ -39,6 +42,7 @@ namespace TaskManagement.API.Controllers
             return Ok(tasks);
         }
 
+
         //LOS GETS
         [HttpGet]
         public async Task<ActionResult<Response<Tareas>>> GetAllTasksAsync()
@@ -48,6 +52,7 @@ namespace TaskManagement.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Response<Tareas>>> GetTaskByIdAsync(int id)
             => await _service.GetTaskByIdAsync(id);
+
 
         //LOS POSTS
         [HttpPost]
@@ -59,8 +64,10 @@ namespace TaskManagement.API.Controllers
                 Message = "Tarea agregada a la cola."
             };
             _taskQueue.EnqueueTask(tarea);
+            _notificationService.NotifyNewTaskAsync(tarea).ConfigureAwait(false);
             return Ok(response);
         }
+
 
         [HttpPost("high-priority")]
         public ActionResult AddHighPriorityTaskAsync([FromBody] string description)
@@ -88,10 +95,12 @@ namespace TaskManagement.API.Controllers
             return Ok(response);
         }
 
+
         //LOS PUTS
         [HttpPut]
         public async Task<ActionResult<Response<string>>> UpdateTaskAsync(Tareas tarea)
             => await _service.UpdateTaskAsync(tarea);
+
 
         //LOS DELETES
         [Authorize(Roles = "Admin")]

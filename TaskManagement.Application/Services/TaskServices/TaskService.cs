@@ -1,14 +1,16 @@
-﻿using System.Linq;
-using TaskManagement.Application.Services.Memoization;
+﻿using TaskManagement.Application.Services.Memoization;
 using TaskManagement.Domain.DTO;
 using TaskManagement.Domain.Models;
 using TaskManagement.Infrastructure.Repository.Common;
+using TaskManagement.Application.Services.Notifications;
+
 
 namespace TaskManagement.Application.Services.TaskServices
 {
     public class TaskService
     {
         private readonly ICommonProcess<Tareas> _commonsProcess;
+        private readonly INotificationService _notificationService;
 
         //delegado
         private readonly Func<Tareas, (bool IsValid, string ErrorMessage)> _validateTask;
@@ -18,9 +20,10 @@ namespace TaskManagement.Application.Services.TaskServices
 
         //func para calcular dias restantes
         private readonly Func<Tareas, int> _calculateDaysRemaining;
-        public TaskService(ICommonProcess<Tareas> commonsProcess)
+        public TaskService(ICommonProcess<Tareas> commonsProcess, INotificationService notificationService)
         {
             _commonsProcess = commonsProcess;
+            _notificationService = notificationService;
 
             _validateTask = (tarea) =>
             {
@@ -109,6 +112,19 @@ namespace TaskManagement.Application.Services.TaskServices
                 _notifyCreation(tarea);
 
                 var result = await _commonsProcess.AddAsync(tarea);
+
+                if (result.IsSuccess)
+                {
+                    try
+                    {
+                        await _notificationService.NotifyNewTaskAsync(tarea);
+                    }
+                    catch (Exception notifyEx)
+                    {
+                        Console.WriteLine($"Error al enviar notificación: {notifyEx.Message}");
+                    }
+
+                }
 
                 MemoizationCache.Clear(); // limpiar cache para recalcular
 
