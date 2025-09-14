@@ -20,6 +20,8 @@ namespace TaskManagement.Application.Services.TaskServices
 
         //func para calcular dias restantes
         private readonly Func<Tareas, int> _calculateDaysRemaining;
+        private ICommonProcess<Tareas> @object;
+
         public TaskService(ICommonProcess<Tareas> commonsProcess, INotificationService notificationService)
         {
             _commonsProcess = commonsProcess;
@@ -53,6 +55,12 @@ namespace TaskManagement.Application.Services.TaskServices
                 return diferencia.Days > 0 ? diferencia.Days : 0;
             };
         }
+
+        public TaskService(ICommonProcess<Tareas> @object)
+        {
+            this.@object = @object;
+        }
+
         //Gets
         public async Task<Response<Tareas>> GetAllTasksAsync()
         {

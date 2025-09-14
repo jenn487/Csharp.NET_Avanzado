@@ -135,7 +135,6 @@ C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\s
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\TaskMana.08BB0814.Up2Date
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\TaskManagement.API.dll
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\refint\TaskManagement.API.dll
