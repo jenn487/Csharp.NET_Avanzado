@@ -7,20 +7,24 @@ using TaskManagement.Application.Services.TaskServices;
 using TaskManagement.Domain.Models;
 using TaskManagement.Infrastructure.Repository.Common;
 using Xunit;
+using TaskManagement.Application.Services.Notifications;
 
 namespace TaskManagement.Tests.Services // pruebas unitarias del servicio de tareas
 {
     public class TaskServiceTests
     {
         private readonly Mock<ICommonProcess<Tareas>> _repoMock;
+        private readonly Mock<INotificationService> _notificationMock;
         private readonly TaskService _service;
 
         public TaskServiceTests()
         {
             _repoMock = new Mock<ICommonProcess<Tareas>>();
-            _service = new TaskService(_repoMock.Object);
+            _notificationMock = new Mock<INotificationService>();
+            _service = new TaskService(_repoMock.Object, _notificationMock.Object);
         }
 
+        // AddTask Tests
         [Fact]
         public async Task AddTask_WithValidData_ShouldBeSuccessful()
         {
@@ -53,9 +57,10 @@ namespace TaskManagement.Tests.Services // pruebas unitarias del servicio de tar
             var result = await _service.AddTaskAsync(tarea);
 
             Assert.False(result.Successful);
-            Assert.Contains("al menos 5 caracteres", result.Errors.First());
+            Assert.Contains("La descripción debe tener al menos 5 caracteres.", result.Errors.First());
         }
 
+        // GetTaskById Tests
         [Fact]
         public async Task GetTaskById_WhenExists_ReturnsTask()
         {
@@ -80,6 +85,7 @@ namespace TaskManagement.Tests.Services // pruebas unitarias del servicio de tar
             Assert.Contains("Tarea no encontrada", result.Errors.First());
         }
 
+        // UpdateTask Tests
         [Fact]
         public async Task UpdateTask_WhenExists_ShouldBeSuccessful()
         {
@@ -94,9 +100,14 @@ namespace TaskManagement.Tests.Services // pruebas unitarias del servicio de tar
             Assert.Equal("¡Actualizada Correctamente!", result.Message);
         }
 
+        // DeleteTask Tests
         [Fact]
         public async Task DeleteTask_WhenExists_ShouldBeSuccessful()
         {
+
+            var tarea = new Tareas { Id = 1, Description = "Tarea para borrar", DueDate = DateTime.Now.AddDays(1), Status = "Pendiente" };
+
+            _repoMock.Setup(r => r.GetIdAsync(1)).ReturnsAsync(tarea);
             _repoMock.Setup(r => r.DeleteAsync(1))
                      .ReturnsAsync((true, "¡Eliminada Correctamente!"));
 
@@ -106,6 +117,7 @@ namespace TaskManagement.Tests.Services // pruebas unitarias del servicio de tar
             Assert.Equal("¡Eliminada Correctamente!", result.Message);
         }
 
+        // Methods Tests
         [Fact]
         public async Task CalculateTaskCompletionRate_WithTasks_ReturnsCorrectPercentage()
         {
@@ -122,6 +134,7 @@ namespace TaskManagement.Tests.Services // pruebas unitarias del servicio de tar
             Assert.Equal(50, result);
         }
 
+        // GetTasksByStatus Tests
         [Fact]
         public async Task GetTasksByStatus_ReturnsFilteredTasks()
         {

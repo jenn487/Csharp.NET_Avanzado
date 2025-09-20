@@ -468,3 +468,4 @@ C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\obj\Debug\net8
 C:\Users\user\Documents\GitHub\Csharp.NET_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\user\Documents\GitHub\Csharp_Avanzado\TaskManagement\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -4,7 +4,6 @@ using TaskManagement.Domain.Models;
 using TaskManagement.Infrastructure.Repository.Common;
 using TaskManagement.Application.Services.Notifications;
 
-
 namespace TaskManagement.Application.Services.TaskServices
 {
     public class TaskService
@@ -12,20 +11,26 @@ namespace TaskManagement.Application.Services.TaskServices
         private readonly ICommonProcess<Tareas> _commonsProcess;
         private readonly INotificationService _notificationService;
 
-        //delegado
+        // delegado
         private readonly Func<Tareas, (bool IsValid, string ErrorMessage)> _validateTask;
 
-        //action de notificacion
+        // action de notificacion
         private readonly Action<Tareas> _notifyCreation;
 
-        //func para calcular dias restantes
+        // func para calcular dias restantes
         private readonly Func<Tareas, int> _calculateDaysRemaining;
-        private ICommonProcess<Tareas> @object;
 
         public TaskService(ICommonProcess<Tareas> commonsProcess, INotificationService notificationService)
         {
-            _commonsProcess = commonsProcess;
-            _notificationService = notificationService;
+            _commonsProcess = commonsProcess ?? throw new ArgumentNullException(nameof(commonsProcess));
+            _notificationService = notificationService ?? throw new ArgumentNullException(nameof(notificationService));
+
+            // Func para calcular dias restantes
+            _calculateDaysRemaining = tarea =>
+            {
+                var diferencia = tarea.DueDate.Date - DateTime.Now.Date;
+                return diferencia.Days > 0 ? diferencia.Days : 0;
+            };
 
             _validateTask = (tarea) =>
             {
@@ -47,21 +52,9 @@ namespace TaskManagement.Application.Services.TaskServices
 
             _notifyCreation = tarea =>
                 Console.WriteLine($"Se ha creado una nueva tarea '{tarea.Description}'. Vence en {_calculateDaysRemaining(tarea)} dia(s).");
-
-            //func para calcular dias restantes
-            _calculateDaysRemaining = tarea =>
-            {
-                var diferencia = tarea.DueDate.Date - DateTime.Now.Date;
-                return diferencia.Days > 0 ? diferencia.Days : 0;
-            };
         }
 
-        public TaskService(ICommonProcess<Tareas> @object)
-        {
-            this.@object = @object;
-        }
-
-        //Gets
+        // Gets
         public async Task<Response<Tareas>> GetAllTasksAsync()
         {
             var response = new Response<Tareas>();
@@ -76,7 +69,8 @@ namespace TaskManagement.Application.Services.TaskServices
             }
             return response;
         }
-        // Gets by Id
+
+        // Get by Id
         public async Task<Response<Tareas>> GetTaskByIdAsync(int id)
         {
             var response = new Response<Tareas>();
@@ -100,7 +94,8 @@ namespace TaskManagement.Application.Services.TaskServices
             }
             return response;
         }
-        // Adds 
+
+        // Adds
         public async Task<Response<string>> AddTaskAsync(Tareas tarea)
         {
             var response = new Response<string>();
@@ -114,9 +109,9 @@ namespace TaskManagement.Application.Services.TaskServices
                     return response;
                 }
 
-                tarea.ExtraData = $"{_calculateDaysRemaining(tarea)} dias restantes.";
+                tarea.ExtraData = $"{_calculateDaysRemaining(tarea)} dia(s) restantes.";
 
-                //action para registrar la creacion dela tarea
+                // el action para registrar la creacion de la tarea
                 _notifyCreation(tarea);
 
                 var result = await _commonsProcess.AddAsync(tarea);
@@ -131,7 +126,6 @@ namespace TaskManagement.Application.Services.TaskServices
                     {
                         Console.WriteLine($"Error al enviar notificación: {notifyEx.Message}");
                     }
-
                 }
 
                 MemoizationCache.Clear(); // limpiar cache para recalcular
@@ -144,8 +138,8 @@ namespace TaskManagement.Application.Services.TaskServices
                 response.Errors.Add(ex.Message);
             }
             return response;
-
         }
+
         // Updates
         public async Task<Response<string>> UpdateTaskAsync(Tareas tarea)
         {
@@ -165,16 +159,22 @@ namespace TaskManagement.Application.Services.TaskServices
             }
             return response;
         }
+
         // Deletes
         public async Task<Response<string>> DeleteTaskAsync(int id)
         {
             var response = new Response<string>();
             try
             {
+                var tarea = await _commonsProcess.GetIdAsync(id);
+                if (tarea == null)
+                {
+                    response.Successful = false;
+                    response.Errors.Add("Tarea no encontrada.");
+                    return response;
+                }
+
                 var result = await _commonsProcess.DeleteAsync(id);
-
-                MemoizationCache.Clear(); // limpiar cache para recalcular
-
                 response.Message = result.Message;
                 response.Successful = result.IsSuccess;
             }
@@ -185,37 +185,28 @@ namespace TaskManagement.Application.Services.TaskServices
             return response;
         }
 
-        //memorizacion para tareas completadas
+        // memorizacion por tareas completadas 
         public async Task<double> CalculateTaskCompletionRateAsync()
         {
-            return await Task.Run(() =>
+            return await MemoizationCache.GetOrAddAsync("CompletionRate", async () =>
             {
-                return MemoizationCache.GetOrAdd("CompletionRate", () =>
-                {
-                    var allTasks = _commonsProcess.GetAllAsync().Result;
-                    var total = allTasks.Count();
-                    if (total == 0) return 0.0;
-                    var completed = allTasks.Count(t => t.Status == "Completada");
-                    return (double)completed / total * 100;
-                });
+                var allTasks = await _commonsProcess.GetAllAsync();
+                var total = allTasks.Count();
+                if (total == 0) return 0.0;
+                var completed = allTasks.Count(t => t.Status == "Completada");
+                return (double)completed / total * 100;
             });
         }
 
-        // filtro por estado con memorizacion
+        // filtro por estado con memorizacion 
         public async Task<IEnumerable<Tareas>> GetTasksByStatusAsync(string status)
         {
-            return await Task.Run(() =>
+            return await MemoizationCache.GetOrAddAsync($"Filter:{status}", async () =>
             {
-                return MemoizationCache.GetOrAdd($"Filter:{status}", () =>
-                {
-                    var allTasks = _commonsProcess.GetAllAsync().Result;
-                    return allTasks.Where(t => t.Status == status).ToList();
-                });
+                var allTasks = await _commonsProcess.GetAllAsync();
+                return allTasks.Where(t => t.Status == status).ToList();
             });
         }
-
-
-
 
     }
 }
